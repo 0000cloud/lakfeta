@@ -6,124 +6,120 @@
 <title>Datos de Transferencia</title>
 
 <style>
-    body {
-        margin: 0;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(135deg, #fdf7f0, #f2e8dd); /* beige muy suave */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        padding: 20px;
-    }
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #fdf7f0, #f2e8dd);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
 
-    .container {
-        background: #ffffff; /* blanco limpio */
-        padding: 35px 25px;
-        border-radius: 25px;
-        text-align: center;
-        width: 100%;
-        max-width: 400px;
-        position: relative;
-        border: 2px solid transparent;
-        background-clip: padding-box;
-        box-shadow: 0 25px 50px rgba(0,0,0,0.12);
-        animation: fadeIn 0.8s ease forwards;
-        opacity: 0;
-        transform: translateY(15px);
-    }
+.container {
+    background: #ffffff;
+    padding: 35px 25px;
+    border-radius: 25px;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.12);
+    animation: fadeIn 0.8s ease forwards;
+    opacity: 0;
+    transform: translateY(15px);
+}
 
-    .container::before {
-        content: '';
-        position: absolute;
-        top: -2px; left: -2px; right: -2px; bottom: -2px;
-        border-radius: 27px;
-        background: linear-gradient(145deg, #e0d6c5, #cbbfa8);
-        z-index: -1;
-    }
+.container::before {
+    content: '';
+    position: absolute;
+    top: -2px; left: -2px; right: -2px; bottom: -2px;
+    border-radius: 27px;
+    background: linear-gradient(145deg, #e0d6c5, #cbbfa8);
+    z-index: -1;
+}
 
-    @keyframes fadeIn {
-        to { opacity: 1; transform: translateY(0); }
-    }
+@keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
 
-    h1 {
-        color: #3e2f23; /* marrón oscuro */
-        font-size: 22px;
-        margin-bottom: 25px;
-        letter-spacing: 1px;
-    }
+h1 {
+    color: #3e2f23;
+    font-size: 22px;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
 
-    .account-number {
-        font-size: 20px;
-        font-weight: bold;
-        letter-spacing: 2px;
-        margin: 18px 0;
-        color: #2e1f15; /* más contraste */
-        word-break: break-all;
-    }
+.account-number {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin: 18px 0;
+    color: #2e1f15;
+    word-break: break-all;
+}
 
-    .details p {
-        font-size: 15px;
-        margin: 6px 0;
-        font-weight: bold;
-        color: #3e2f23;
-    }
+.details p {
+    font-size: 15px;
+    margin: 6px 0;
+    font-weight: bold;
+    color: #3e2f23;
+}
 
-    .copy-btn, .whatsapp-btn {
-        padding: 14px;
-        border-radius: 12px;
-        font-size: 15px;
-        font-weight: bold;
-        width: 100%;
-        margin-bottom: 12px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        border: none;
-        text-decoration: none;
-        display: block;
-        text-align: center;
-    }
+/* Botones auto-ancho, estilo “tarjeta flotante” */
+button.copy-btn, a.whatsapp-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    text-align: center;
+    white-space: pre-line;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
 
-    /* Botón copiar con colores profesionales */
-    .copy-btn {
-        background-color: #3e2f23; /* marrón oscuro sólido */
-        color: #ffffff;
-        white-space: pre-line; /* permite salto de línea */
-        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    }
+/* Copiar número */
+button.copy-btn {
+    background-color: #3e2f23;
+    color: #ffffff;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+button.copy-btn:hover {
+    background-color: #5a4433;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+}
 
-    .copy-btn:hover {
-        background-color: #5a4433; /* marrón más claro al hover */
-        transform: translateY(-2px);
-        box-shadow: 0 6px 14px rgba(0,0,0,0.2);
-    }
+/* WhatsApp */
+a.whatsapp-btn {
+    background-color: #25D366;
+    color: #ffffff;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+a.whatsapp-btn:hover {
+    background-color: #1ebe57;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+}
 
-    /* Botón WhatsApp */
-    .whatsapp-btn {
-        background-color: #25D366; /* verde WhatsApp, muy legible */
-        color: #ffffff;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    }
+.footer {
+    margin-top: 20px;
+    font-size: 11px;
+    color: #9c948a;
+}
 
-    .whatsapp-btn:hover {
-        background-color: #1ebe57; /* verde más oscuro al hover */
-        transform: translateY(-2px);
-        box-shadow: 0 6px 14px rgba(0,0,0,0.2);
-    }
-
-    .footer {
-        margin-top: 20px;
-        font-size: 11px;
-        color: #9c948a;
-    }
-
-    @media (max-width: 480px) {
-        .container { padding: 25px 20px; }
-        h1 { font-size: 20px; }
-        .account-number { font-size: 18px; }
-        .details p { font-size: 14px; }
-        .copy-btn, .whatsapp-btn { font-size: 14px; padding: 12px; }
-    }
+@media (max-width: 480px) {
+    h1 { font-size: 20px; }
+    .account-number { font-size: 18px; }
+    .details p { font-size: 14px; }
+    button.copy-btn, a.whatsapp-btn { font-size: 14px; padding: 8px 16px; }
+}
 </style>
 </head>
 
@@ -159,10 +155,16 @@
 <script>
 function copyNumber() {
     const number = document.getElementById("accountNumber").innerText;
+    const button = document.getElementById("copyButton");
     navigator.clipboard.writeText(number).then(() => {
-        const button = document.getElementById("copyButton");
-        button.innerHTML = "✅ Copiado\nPegue en su app bancaria"; // palomita verde y salto de línea
-        button.style.backgroundColor = "#2e7d32"; // verde suave después de copiar
+        // Cambiar texto y color con palomita
+        button.innerHTML = "✅ Copiado\nPegue en su app bancaria";
+        button.style.backgroundColor = "#2e7d32";
+        // Volver a estado original después de 3 segundos
+        setTimeout(() => {
+            button.innerHTML = "Copiar número";
+            button.style.backgroundColor = "#3e2f23";
+        }, 3000);
     });
 }
 </script>
